@@ -1,0 +1,67 @@
+use_bpm 82
+use_synth :piano
+
+with_fx :reverb, room: 0.8, mix: 0.6 do
+    play 63, amp: 0.6
+    sleep 0.5
+    play 59, amp: 0.5
+    sleep 0.4
+    play 64, amp: 0.4
+    sleep 0.5
+
+    play 63, amp: 0.6
+    sleep 0.5
+    play 57, amp: 0.7
+    sleep 0.1
+    play 45, amp: 0.5
+    sleep 0.5
+
+    play 43, amp: 0.2
+    sleep 0.5
+    play 54, amp: 0.5
+    sleep 0.5
+
+end
+
+live_loop :background do
+    with_fx :reverb, room: 0.9, mix: 0.6 do
+        use_synth :piano
+
+        play 60, amp: 0.35
+        sleep 1
+
+        play 64, amp: 0.25
+        sleep 1
+
+        play 67, amp: 0.20
+        sleep 1
+
+        play 64, amp: 0.25
+        sleep 1
+    end
+end
+
+live_loop :low_notes do
+    sleep 4
+
+    with_fx :reverb, room: 1, mix: 0.8 do
+        use_synth :piano
+
+        play 43, amp: 0.12
+        sleep 2
+
+        play 40, amp: 0.10
+        sleep 2
+    end
+end
+
+in_thread do
+    sleep 0.5
+    with_fx :reverb, damp: 0.3 do
+        with_fx :echo, phase:0.6 do
+            with_fx :compressor do
+                sample "C:/Users/DELL/Downloads/1stpart.wav", amp: 1.5
+            end
+        end
+    end
+end
