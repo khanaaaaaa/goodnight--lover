@@ -2,7 +2,7 @@ use_bpm 82
 use_synth :piano
 
 with_fx :reverb, room: 0.8, mix: 0.6 do
-    play 63, amp: 0.6
+    play 67, amp: 0.25, release: 2
     sleep 0.5
     play 59, amp: 0.5
     sleep 0.4
@@ -20,7 +20,6 @@ with_fx :reverb, room: 0.8, mix: 0.6 do
     sleep 0.5
     play 54, amp: 0.5
     sleep 0.5
-
 end
 
 in_thread do
@@ -58,6 +57,24 @@ live_loop :low_notes do
 end
 
 in_thread do
+    use_synth :prophet
+
+    with_fx :reverb, room: 1, mix: 0.75 do
+        play_chord [55, 60, 64], amp: 0.16, attack: 1.5, release: 4
+        sleep 4
+
+        play_chord [52, 59, 64], amp: 0.14, attack: 1.5, release: 4
+        sleep 4
+
+        play_chord [55, 60, 67], amp: 0.16, attack: 1.5, release: 4
+        sleep 4
+
+        play_chord [57, 60, 64], amp: 0.13, attack: 1.5, release:4
+        sleep 4
+    end
+end
+
+in_thread do
     sleep 0.5
     sample "C:/Users/DELL/Downloads/1stpart.wav", amp: 0.5
 end
@@ -87,7 +104,89 @@ with_fx :reverb, room: 1, mix: 0.6, damp: 0.7 do
     sleep 0.5
     play 72, amp: 0.35, release: 2.5
     sleep 1
-    play 71, amp: 0.25, release: 2
+    play 71, amp: 0.25, release: 3
     sleep 0.5
 
+end
+
+in_thread do
+    sleep 0.2
+
+    with_fx :reverb, room: 1, mix: 0.8, damp: 0.75 do
+        use_synth :piano
+
+        play 79, amp: 0.16, release: 2.5
+        sleep 0.5
+
+        play 76, amp: 0.14, release: 2
+        sleep 0.5
+
+        play 74, amp: 0.16, release: 2
+        sleep 0.5
+
+        play 76, amp: 0.18, release: 2.5
+        sleep 0.75
+
+        play 81, amp: 0.16, release: 3
+        sleep 0.5
+
+        play 79, amp: 0.14, release: 3
+        sleep 0.5
+
+        play 76, amp: 0.12, release: 3
+        sleep 1
+    end
+end
+
+in_thread do
+    sleep 2.5
+
+    with_fx :reverb, room: 1, mix: 0.7 do
+        use_synth :prophet
+
+        play_chord [55, 60, 64],
+            amp: 0.12,
+            attack: 1,
+            release: 4
+
+        sleep 0.5
+
+        play_chord [59, 64, 67],
+            amp: 0.12,
+            attack: 1,
+            release: 4
+        
+            sleep 0.5
+
+        play_chord [60, 64, 67],
+            amp: 0.15,
+            attack: 1,
+            release:5
+
+        sleep 1
+
+        play_chord [59, 64, 67],
+            amp: 0.10,
+            attack: 1,
+            release: 5
+    end
+end
+
+in_thread do
+    sleep 2.8
+
+    with_fx :reverb, room: 1, mix: 0.85 do
+        use_synth :pretty_bell
+
+        play 79, amp: 0.12, release: 2.5
+        sleep 0.5
+
+        play 83, amp: 0.13, release: 3
+        sleep 0.5
+
+        play 84, amp: 0.16, release: 4
+        sleep 1
+
+        play 83, amp: 0.10, release: 3
+    end
 end
