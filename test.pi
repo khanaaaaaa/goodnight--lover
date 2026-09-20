@@ -23,21 +23,23 @@ with_fx :reverb, room: 0.8, mix: 0.6 do
 
 end
 
-live_loop :background do
-    with_fx :reverb, room: 0.9, mix: 0.6 do
-        use_synth :piano
+in_thread do
+    8.times do
+        with_fx :reverb, room: 1, mix: 0.65, damp: 0.85 do
+            use_synth :piano
 
-        play 60, amp: 0.35
-        sleep 1
+            play 60, amp: 0.35
+            sleep 1
 
-        play 64, amp: 0.25
-        sleep 1
+            play 64, amp: 0.25
+            sleep 1
 
-        play 67, amp: 0.20
-        sleep 1
+            play 67, amp: 0.20
+            sleep 1
 
-        play 64, amp: 0.25
-        sleep 1
+            play 64, amp: 0.25
+            sleep 1
+        end
     end
 end
 
@@ -57,11 +59,35 @@ end
 
 in_thread do
     sleep 0.5
-    with_fx :reverb, damp: 0.3 do
-        with_fx :echo, phase:0.6 do
-            with_fx :compressor do
-                sample "C:/Users/DELL/Downloads/1stpart.wav", amp: 1.5
-            end
-        end
+    sample "C:/Users/DELL/Downloads/1stpart.wav", amp: 0.5
+end
+
+in_thread do
+    sleep 2.2
+    with_fx :reverb, room: 1, mix: 0.9, damp: 0.9 do
+        sample "C:/Users/DELL/Downloads/1stpart.wav",
+            amp: 0.07
     end
+end
+
+in_thread do
+    sleep 2.2
+    with_fx :reverb, room: 1, mix: 0.9, damp: 0.9 do
+        sample "C:/Users/DELL/Downloads/1stpart.wav",
+            amp: 0.07
+    end
+end
+
+with_fx :reverb, room: 1, mix: 0.6, damp: 0.7 do
+    use_synth :piano
+
+    play 67, amp: 0.35, release: 2
+    sleep 0.5
+    play 71, amp: 0.30, release: 2
+    sleep 0.5
+    play 72, amp: 0.35, release: 2.5
+    sleep 1
+    play 71, amp: 0.25, release: 2
+    sleep 0.5
+
 end
