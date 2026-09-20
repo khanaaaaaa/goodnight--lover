@@ -190,3 +190,87 @@ in_thread do
         play 83, amp: 0.10, release: 3
     end
 end
+
+in_thread do
+    sleep 10.5
+
+    with_fx :reverb, room: 1, mix: 0.85 do
+        use_synth :prophet
+
+        play_chord [55, 60, 64],
+            amp: 0.10,
+            attack: 1.5,
+            release: 5
+
+        sleep 2
+
+        play_chord [52, 59, 64],
+            amp: 0.12,
+            attack: 1.5,
+            release: 5
+
+        sleep 2
+
+        play_chord [55, 60, 67],
+            amp: 0.14,
+            attack: 1.5,
+            release:6
+    end
+end
+
+in_thread do
+    sleep 11
+
+    with_fx :reverb, room: 1, mix: 0.9 do
+        use_synth :pretty_bell
+
+        play 76, amp: 0.08, release: 3
+        sleep 1
+
+        play 79, amp: 0.10, release: 3
+        sleep 1
+
+        play 81, amp: 0.12, release: 4
+        sleep 1
+
+        play 84, amp: 0.10, release: 5 
+    end
+end
+
+in_thread do
+    sleep 15
+
+    with_fx :reverb, room: 1, mix: 0.8 do
+        use_synth :piano
+
+        play 43, amp: 0.10, release: 4
+        sleep 2
+
+        play 40, amp: 0.09, release: 4
+        sleep 2
+
+        play 48, amp: 0.11, release: 6
+    end
+end
+
+in_thread do
+    sleep 15.5
+
+    with_fx :reverb, room: 1, mix: 0.85 do
+        use_synth :piano
+
+        play 72, amp: 0.10, release: 2.5
+        sleep 0.5
+
+        play 76, amp: 0.12, release: 2.5
+        sleep 0.5
+
+        play 79, amp: 0.14, release: 3
+        sleep 1
+
+        play 76, amp: 0.10, release: 3
+        sleep 0.5
+
+        play 72, amp: 0.08, release: 4
+    end
+end
