@@ -8,8 +8,15 @@
     </head>
     <body>
         <main class="album-page">
-            <div class="cover">
+            <div class="cover" onclick="showCode()">
                 <img src="cover.jpg" alt="Album cover">
+            </div>
+            <div class="code-panel" id="codePanel">
+                <button class="close" onclick="hideCode()"></button>
+                <div class="code-header">
+                    <span>goodnight, lover</span>
+                    <span>code.pi</span>
+                </div>
             </div>
         </main>
     </body>

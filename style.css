@@ -12,3 +12,71 @@ body {
     font-family: "DM Mono", monospace;
     display: flex;
 }
+
+.album-page {
+    width: 100vw;
+    height: 100vh;
+    display:flex;
+    align-items: center;
+    position: center;
+    gap: 25px;
+}
+
+.cover {
+    width: 430px;
+    height: 430px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.cover:hover {
+    transform: rotate(-1deg) scale(1.02);
+}
+
+.cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.code-panel {
+    width: 340px;
+    height: 390px;
+    background: #eee0a8;
+    color: #302b28;
+    position: relative;
+    transform: rotate(2deg) translateX(-5px);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.code-panel.open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: rotate(2deg) translateX(0);
+}
+
+.code-panel::before {
+    content: "";
+    position: absolute;
+    top: -8px;
+    left: 110px;
+    width: 100px;
+    height: 25px;
+    transform: rotate(-2deg);
+}
+
+.code-header {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #444;
+    font-size: 14px;
+    color: #aaa;
+}
+
+.code-header span:last-cild {
+    color: white;
+}
