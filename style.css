@@ -1,4 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Playfair+Display:wght@400;500&display=swap');
+@font-face {
+    font-family: "MyFont";
+    src: url("main.ttf") format("truetype");
+}
 
 * {
     box-sizing: border-box;
@@ -9,7 +12,7 @@ body {
     min-height: 100vh;
     background: #17151a;
     color: #eee8e1;
-    font-family: "DM Mono", monospace;
+    font-family: "MyFont", monospace;
     display: flex;
 }
 
@@ -18,7 +21,7 @@ body {
     height: 100vh;
     display:flex;
     align-items: center;
-    position: center;
+    justify-content: center;
     gap: 25px;
 }
 
@@ -29,10 +32,6 @@ body {
     transition: transform 0.3s ease;
 }
 
-.cover:hover {
-    transform: rotate(-1deg) scale(1.02);
-}
-
 .cover img {
     width: 100%;
     height: 100%;
@@ -40,43 +39,21 @@ body {
     display: block;
 }
 
-.code-panel {
-    width: 340px;
-    height: 390px;
-    background: #eee0a8;
-    color: #302b28;
-    position: relative;
-    transform: rotate(2deg) translateX(-5px);
-    opacity: 0;
-    pointer-events: none;
+#enter {
+    position: fixed;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1b101f;
+    border: 1px solid #ff7518;
+    color: #ff7518;
+    font-family: "MyFont", monospace;
+    font-size: 18px;
+    cursor: pointer;
+    letter-spacing: 3px;
 }
 
-.code-panel.open {
-    opacity: 1;
-    pointer-events: auto;
-    transform: rotate(2deg) translateX(0);
-}
-
-.code-panel::before {
-    content: "";
-    position: absolute;
-    top: -8px;
-    left: 110px;
-    width: 100px;
-    height: 25px;
-    transform: rotate(-2deg);
-}
-
-.code-header {
-    display: flex;
-    justify-content: space-between;
-    padding-bottom: 15px;
-    margin-bottom: 20px;
-    border-bottom: 1px solid #444;
-    font-size: 14px;
-    color: #aaa;
-}
-
-.code-header span:last-cild {
-    color: white;
+#enter {
+    background: #ff7518;
+    color: #1b101f;
 }
