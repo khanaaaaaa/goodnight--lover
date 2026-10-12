@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>my sonic pi code</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1>sonic pi code: </h1>
+        <h2>
+        <pre>
+            <code>
+                use_bpm 82
+use_synth :piano
+
+with_fx :reverb, room: 0.8, mix: 0.6 do
+    play 67, amp: 0.25, release: 2
+    sleep 0.5
+    play 59, amp: 0.5
+    sleep 0.4
+    play 64, amp: 0.4
+    sleep 0.5
+
+    play 63, amp: 0.6
+    sleep 0.5
+    play 57, amp: 0.7
+    sleep 0.1
+    play 45, amp: 0.5
+    sleep 0.5
+
+    play 43, amp: 0.2
+    sleep 0.5
+    play 54, amp: 0.5
+    sleep 0.5
+end
+
+in_thread do
+    8.times do
+        with_fx :reverb, room: 1, mix: 0.65, damp: 0.85 do
+            use_synth :piano
+
+            play 60, amp: 0.35
+            sleep 1
+
+            play 64, amp: 0.25
+            sleep 1
+
+            play 67, amp: 0.20
+            sleep 1
+
+            play 64, amp: 0.25
+            sleep 1
+        end
+    end
+end
+
+live_loop :low_notes do
+    sleep 4
+
+    with_fx :reverb, room: 1, mix: 0.8 do
+        use_synth :piano
+
+        play 43, amp: 0.12
+        sleep 2
+
+        play 40, amp: 0.10
+        sleep 2
+    end
+end
+
+in_thread do
+    use_synth :prophet
+
+    with_fx :reverb, room: 1, mix: 0.75 do
+        play_chord [55, 60, 64], amp: 0.16, attack: 1.5, release: 4
+        sleep 4
+
+        play_chord [52, 59, 64], amp: 0.14, attack: 1.5, release: 4
+        sleep 4
+
+        play_chord [55, 60, 67], amp: 0.16, attack: 1.5, release: 4
+        sleep 4
+
+        play_chord [57, 60, 64], amp: 0.13, attack: 1.5, release:4
+        sleep 4
+    end
+end
+
+in_thread do
+    sleep 0.5
+    sample "C:/Users/DELL/Downloads/1stpart.wav", amp: 0.5
+end
+
+in_thread do
+    sleep 2.2
+    with_fx :reverb, room: 1, mix: 0.9, damp: 0.9 do
+        sample "C:/Users/DELL/Downloads/1stpart.wav",
+            amp: 0.07
+    end
+end
+
+in_thread do
+    sleep 2.2
+    with_fx :reverb, room: 1, mix: 0.9, damp: 0.9 do
+        sample "C:/Users/DELL/Downloads/1stpart.wav",
+            amp: 0.07
+    end
+end
+
+with_fx :reverb, room: 1, mix: 0.6, damp: 0.7 do
+    use_synth :piano
+
+    play 67, amp: 0.35, release: 2
+    sleep 0.5
+    play 71, amp: 0.30, release: 2
+    sleep 0.5
+    play 72, amp: 0.35, release: 2.5
+    sleep 1
+    play 71, amp: 0.25, release: 3
+    sleep 0.5
+
+end
+
+in_thread do
+    sleep 0.2
+
+    with_fx :reverb, room: 1, mix: 0.8, damp: 0.75 do
+        use_synth :piano
+
+        play 79, amp: 0.16, release: 2.5
+        sleep 0.5
+
+        play 76, amp: 0.14, release: 2
+        sleep 0.5
+
+        play 74, amp: 0.16, release: 2
+        sleep 0.5
+
+        play 76, amp: 0.18, release: 2.5
+        sleep 0.75
+
+        play 81, amp: 0.16, release: 3
+        sleep 0.5
+
+        play 79, amp: 0.14, release: 3
+        sleep 0.5
+
+        play 76, amp: 0.12, release: 3
+        sleep 1
+    end
+end
+
+in_thread do
+    sleep 2.5
+
+    with_fx :reverb, room: 1, mix: 0.7 do
+        use_synth :prophet
+
+        play_chord [55, 60, 64],
+            amp: 0.12,
+            attack: 1,
+            release: 4
+
+        sleep 0.5
+
+        play_chord [59, 64, 67],
+            amp: 0.12,
+            attack: 1,
+            release: 4
+        
+            sleep 0.5
+
+        play_chord [60, 64, 67],
+            amp: 0.15,
+            attack: 1,
+            release:5
+
+        sleep 1
+
+        play_chord [59, 64, 67],
+            amp: 0.10,
+            attack: 1,
+            release: 5
+    end
+end
+
+in_thread do
+    sleep 2.8
+
+    with_fx :reverb, room: 1, mix: 0.85 do
+        use_synth :pretty_bell
+
+        play 79, amp: 0.12, release: 2.5
+        sleep 0.5
+
+        play 83, amp: 0.13, release: 3
+        sleep 0.5
+
+        play 84, amp: 0.16, release: 4
+        sleep 1
+
+        play 83, amp: 0.10, release: 3
+    end
+end
+
+in_thread do
+    sleep 10.5
+
+    with_fx :reverb, room: 1, mix: 0.85 do
+        use_synth :prophet
+
+        play_chord [55, 60, 64],
+            amp: 0.10,
+            attack: 1.5,
+            release: 5
+
+        sleep 2
+
+        play_chord [52, 59, 64],
+            amp: 0.12,
+            attack: 1.5,
+            release: 5
+
+        sleep 2
+
+        play_chord [55, 60, 67],
+            amp: 0.14,
+            attack: 1.5,
+            release:6
+    end
+end
+
+in_thread do
+    sleep 11
+
+    with_fx :reverb, room: 1, mix: 0.9 do
+        use_synth :pretty_bell
+
+        play 76, amp: 0.08, release: 3
+        sleep 1
+
+        play 79, amp: 0.10, release: 3
+        sleep 1
+
+        play 81, amp: 0.12, release: 4
+        sleep 1
+
+        play 84, amp: 0.10, release: 5 
+    end
+end
+
+in_thread do
+    sleep 15
+
+    with_fx :reverb, room: 1, mix: 0.8 do
+        use_synth :piano
+
+        play 43, amp: 0.10, release: 4
+        sleep 2
+
+        play 40, amp: 0.09, release: 4
+        sleep 2
+
+        play 48, amp: 0.11, release: 6
+    end
+end
+
+in_thread do
+    sleep 15.5
+
+    with_fx :reverb, room: 1, mix: 0.85 do
+        use_synth :piano
+
+        play 72, amp: 0.10, release: 2.5
+        sleep 0.5
+
+        play 76, amp: 0.12, release: 2.5
+        sleep 0.5
+
+        play 79, amp: 0.14, release: 3
+        sleep 1
+
+        play 76, amp: 0.10, release: 3
+        sleep 0.5
+
+        play 72, amp: 0.08, release: 4
+    end
+end
+            </code>
+        </pre>
+    </body>
+</html>
